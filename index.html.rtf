@@ -1,0 +1,401 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2869
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="cs">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Mat\uc0\u283 j Doubrava</title>\
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">\
+<style>\
+  * \{ margin: 0; padding: 0; box-sizing: border-box; \}\
+  html \{ scroll-behavior: smooth; \}\
+  body \{\
+    background: #0a0a0f;\
+    color: #e8e6df;\
+    font-family: 'DM Sans', sans-serif;\
+    min-height: 100vh;\
+    overflow-x: hidden;\
+  \}\
+  .accent-line \{\
+    position: fixed;\
+    top: 0; left: 0; right: 0;\
+    height: 3px;\
+    background: linear-gradient(90deg, #e84027, #ff6b47, #e84027);\
+    z-index: 100;\
+  \}\
+  nav \{\
+    position: fixed;\
+    top: 3px; left: 0; right: 0;\
+    padding: 1.25rem 3rem;\
+    display: flex;\
+    justify-content: space-between;\
+    align-items: center;\
+    z-index: 99;\
+    background: rgba(10, 10, 15, 0.85);\
+    backdrop-filter: blur(12px);\
+    border-bottom: 1px solid rgba(255,255,255,0.04);\
+  \}\
+  .nav-logo \{\
+    font-family: 'Bebas Neue', sans-serif;\
+    font-size: 1.4rem;\
+    letter-spacing: 0.08em;\
+    color: #f0ede6;\
+    text-decoration: none;\
+  \}\
+  .nav-links \{ display: flex; gap: 2.5rem; list-style: none; \}\
+  .nav-links a \{\
+    font-size: 12px;\
+    letter-spacing: 0.2em;\
+    text-transform: uppercase;\
+    color: #555;\
+    text-decoration: none;\
+    transition: color 0.3s;\
+  \}\
+  .nav-links a:hover \{ color: #e84027; \}\
+  .container \{\
+    max-width: 960px;\
+    margin: 0 auto;\
+    padding: 0 2.5rem;\
+    position: relative;\
+    z-index: 1;\
+  \}\
+  .hero \{\
+    min-height: 100vh;\
+    display: flex;\
+    flex-direction: column;\
+    justify-content: center;\
+    padding: 8rem 0 4rem;\
+    position: relative;\
+  \}\
+  .hero::before \{\
+    content: 'MD';\
+    position: absolute;\
+    right: -1rem; top: 50%;\
+    transform: translateY(-50%);\
+    font-family: 'Bebas Neue', sans-serif;\
+    font-size: 22vw;\
+    color: rgba(232, 64, 39, 0.04);\
+    pointer-events: none;\
+    user-select: none;\
+    line-height: 1;\
+  \}\
+  .hero-label \{\
+    font-size: 11px;\
+    letter-spacing: 0.25em;\
+    text-transform: uppercase;\
+    color: #e84027;\
+    margin-bottom: 1.5rem;\
+    font-weight: 500;\
+    opacity: 0;\
+    animation: fadeUp 0.7s ease 0.1s forwards;\
+  \}\
+  .hero-name \{\
+    font-family: 'Bebas Neue', sans-serif;\
+    font-size: clamp(4.5rem, 13vw, 10rem);\
+    line-height: 0.88;\
+    letter-spacing: 0.02em;\
+    color: #f0ede6;\
+    margin-bottom: 2.5rem;\
+    opacity: 0;\
+    animation: fadeUp 0.7s ease 0.25s forwards;\
+  \}\
+  .hero-name span \{ display: block; color: #e84027; \}\
+  .hero-meta \{\
+    display: flex;\
+    gap: 2rem;\
+    flex-wrap: wrap;\
+    margin-bottom: 3.5rem;\
+    opacity: 0;\
+    animation: fadeUp 0.7s ease 0.4s forwards;\
+  \}\
+  .meta-item \{\
+    display: flex;\
+    align-items: center;\
+    gap: 8px;\
+    font-size: 14px;\
+    color: #666;\
+    font-weight: 300;\
+  \}\
+  .meta-dot \{\
+    width: 5px; height: 5px;\
+    border-radius: 50%;\
+    background: #e84027;\
+    flex-shrink: 0;\
+  \}\
+  .scroll-hint \{\
+    display: flex;\
+    align-items: center;\
+    gap: 12px;\
+    font-size: 11px;\
+    color: #444;\
+    letter-spacing: 0.15em;\
+    text-transform: uppercase;\
+    opacity: 0;\
+    animation: fadeUp 0.7s ease 0.55s forwards;\
+  \}\
+  .scroll-line \{\
+    width: 50px; height: 1px;\
+    background: #1e1e28;\
+    position: relative;\
+    overflow: hidden;\
+  \}\
+  .scroll-line::after \{\
+    content: '';\
+    position: absolute;\
+    top: 0; left: -100%;\
+    width: 100%; height: 100%;\
+    background: #e84027;\
+    animation: scanline 2.5s ease-in-out infinite;\
+  \}\
+  @keyframes scanline \{\
+    0% \{ left: -100%; \}\
+    100% \{ left: 100%; \}\
+  \}\
+  @keyframes fadeUp \{\
+    from \{ opacity: 0; transform: translateY(28px); \}\
+    to \{ opacity: 1; transform: translateY(0); \}\
+  \}\
+  .divider \{ width: 100%; height: 1px; background: #141420; \}\
+  .section \{ padding: 7rem 0; \}\
+  .section-label \{\
+    font-size: 11px;\
+    letter-spacing: 0.25em;\
+    text-transform: uppercase;\
+    color: #e84027;\
+    margin-bottom: 0.75rem;\
+    font-weight: 500;\
+  \}\
+  .section-title \{\
+    font-family: 'Bebas Neue', sans-serif;\
+    font-size: clamp(2.8rem, 6vw, 5rem);\
+    letter-spacing: 0.03em;\
+    color: #f0ede6;\
+    line-height: 1;\
+    margin-bottom: 3.5rem;\
+  \}\
+  .about-grid \{\
+    display: grid;\
+    grid-template-columns: 1.1fr 0.9fr;\
+    gap: 4rem;\
+    align-items: start;\
+  \}\
+  .about-text \{\
+    font-size: 16px;\
+    line-height: 1.95;\
+    color: #888;\
+    font-weight: 300;\
+  \}\
+  .about-text strong \{ color: #d8d5ce; font-weight: 500; \}\
+  .about-text p + p \{ margin-top: 1.25rem; \}\
+  .interests-grid \{ display: grid; gap: 1rem; \}\
+  .interest-card \{\
+    background: #0e0e18;\
+    border: 1px solid #1c1c28;\
+    border-radius: 10px;\
+    padding: 1.25rem 1.5rem;\
+    display: flex;\
+    align-items: center;\
+    gap: 1rem;\
+    transition: border-color 0.3s, transform 0.3s;\
+  \}\
+  .interest-card:hover \{\
+    border-color: rgba(232, 64, 39, 0.5);\
+    transform: translateX(8px);\
+  \}\
+  .interest-icon \{\
+    width: 42px; height: 42px;\
+    border-radius: 8px;\
+    background: rgba(232, 64, 39, 0.08);\
+    border: 1px solid rgba(232, 64, 39, 0.18);\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    flex-shrink: 0;\
+  \}\
+  .interest-icon svg \{ width: 20px; height: 20px; fill: #e84027; \}\
+  .interest-name \{ font-size: 15px; font-weight: 500; color: #e0ddd6; \}\
+  .interest-sub \{ font-size: 12px; color: #444; margin-top: 3px; font-weight: 300; \}\
+  .contact-intro \{\
+    font-size: 16px;\
+    color: #666;\
+    font-weight: 300;\
+    margin-bottom: 2.5rem;\
+    max-width: 480px;\
+    line-height: 1.8;\
+  \}\
+  .contact-grid \{\
+    display: grid;\
+    grid-template-columns: 1fr 1fr;\
+    gap: 1.25rem;\
+  \}\
+  .contact-card \{\
+    background: #0e0e18;\
+    border: 1px solid #1c1c28;\
+    border-radius: 10px;\
+    padding: 1.5rem;\
+    display: flex;\
+    align-items: center;\
+    gap: 1rem;\
+    text-decoration: none;\
+    color: inherit;\
+    transition: border-color 0.3s, background 0.3s, transform 0.3s;\
+  \}\
+  .contact-card:hover \{\
+    border-color: rgba(232, 64, 39, 0.5);\
+    background: #111120;\
+    transform: translateY(-3px);\
+  \}\
+  .contact-icon \{\
+    width: 46px; height: 46px;\
+    border-radius: 9px;\
+    background: rgba(232, 64, 39, 0.07);\
+    border: 1px solid rgba(232, 64, 39, 0.15);\
+    display: flex;\
+    align-items: center;\
+    justify-content: center;\
+    flex-shrink: 0;\
+  \}\
+  .contact-icon svg \{ width: 22px; height: 22px; fill: #e84027; \}\
+  .contact-label \{\
+    font-size: 10px;\
+    color: #444;\
+    text-transform: uppercase;\
+    letter-spacing: 0.2em;\
+    margin-bottom: 4px;\
+  \}\
+  .contact-value \{ font-size: 15px; font-weight: 500; color: #d8d5ce; \}\
+  .footer \{\
+    border-top: 1px solid #111118;\
+    padding: 2rem 0 3rem;\
+    display: flex;\
+    justify-content: space-between;\
+    align-items: center;\
+  \}\
+  .footer-logo \{\
+    font-family: 'Bebas Neue', sans-serif;\
+    font-size: 1.4rem;\
+    letter-spacing: 0.05em;\
+    color: #222230;\
+  \}\
+  .footer-copy \{ font-size: 12px; color: #2a2a38; font-weight: 300; \}\
+  @media (max-width: 680px) \{\
+    nav \{ padding: 1rem 1.5rem; \}\
+    .nav-links \{ display: none; \}\
+    .hero::before \{ display: none; \}\
+    .about-grid \{ grid-template-columns: 1fr; gap: 2.5rem; \}\
+    .contact-grid \{ grid-template-columns: 1fr; \}\
+    .footer \{ flex-direction: column; gap: 0.5rem; text-align: center; \}\
+  \}\
+</style>\
+</head>\
+<body>\
+\
+<div class="accent-line"></div>\
+\
+<nav>\
+  <a class="nav-logo" href="#">M. Doubrava</a>\
+  <ul class="nav-links">\
+    <li><a href="#o-mne">O mn\uc0\u283 </a></li>\
+    <li><a href="#kontakt">Kontakt</a></li>\
+  </ul>\
+</nav>\
+\
+<section class="hero" id="home">\
+  <div class="container">\
+    <div class="hero-label">// osobn\'ed str\'e1nka</div>\
+    <h1 class="hero-name">\
+      Mat\uc0\u283 j\
+      <span>Doubrava</span>\
+    </h1>\
+    <div class="hero-meta">\
+      <div class="meta-item"><div class="meta-dot"></div>22 let</div>\
+      <div class="meta-item"><div class="meta-dot"></div>Stochov, CZ</div>\
+    </div>\
+    <div class="scroll-hint">\
+      <div class="scroll-line"></div>\
+      Scroll dol\uc0\u367 \
+    </div>\
+  </div>\
+</section>\
+\
+<div class="divider"></div>\
+\
+<section class="section" id="o-mne">\
+  <div class="container">\
+    <div class="section-label">// 01 \'97 o mn\uc0\u283 </div>\
+    <h2 class="section-title">Kdo jsem</h2>\
+    <div class="about-grid">\
+      <div class="about-text">\
+        <p>Jmenuji se <strong>Mat\uc0\u283 j Doubrava</strong>, je mi <strong>22 let</strong> a poch\'e1z\'edm ze <strong>Stochova</strong>.</p>\
+        <p>Jsem \uc0\u269 lov\u283 k, kter\'e9ho bav\'ed rychlost, adrenalin a sport. Rychl\'e1 auta a fotbal jsou moje nejv\u283 t\'9a\'ed v\'e1\'9an\u283 .</p>\
+        <p>Tato str\'e1nka je mal\'fd osobn\'ed prostor, kde se m\uc0\u367 \'9ee\'9a dozv\u283 d\u283 t n\u283 co v\'edc o tom, kdo jsem.</p>\
+      </div>\
+      <div class="interests-grid">\
+        <div class="interest-card">\
+          <div class="interest-icon">\
+            <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg>\
+          </div>\
+          <div>\
+            <div class="interest-name">Rychl\'e1 auta</div>\
+            <div class="interest-sub">Adrenalin, v\'fdkon, styl</div>\
+          </div>\
+        </div>\
+        <div class="interest-card">\
+          <div class="interest-icon">\
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>\
+          </div>\
+          <div>\
+            <div class="interest-name">Fotbal</div>\
+            <div class="interest-sub">T\'fdm, v\'e1\'9ae\uc0\u328 , hra</div>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  </div>\
+</section>\
+\
+<div class="divider"></div>\
+\
+<section class="section" id="kontakt">\
+  <div class="container">\
+    <div class="section-label">// 02 \'97 kontakt</div>\
+    <h2 class="section-title">Napi\'9a mi</h2>\
+    <p class="contact-intro">Nev\'e1hej se ozvat \'97 a\uc0\u357  u\'9e kv\u367 li \u269 emukoliv. R\'e1d si popov\'edd\'e1m.</p>\
+    <div class="contact-grid">\
+      <a class="contact-card" href="mailto:matej@example.com">\
+        <div class="contact-icon">\
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>\
+        </div>\
+        <div>\
+          <div class="contact-label">Email</div>\
+          <div class="contact-value">matej@example.com</div>\
+        </div>\
+      </a>\
+      <a class="contact-card" href="https://instagram.com/matej.doubrava" target="_blank">\
+        <div class="contact-icon">\
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>\
+        </div>\
+        <div>\
+          <div class="contact-label">Instagram</div>\
+          <div class="contact-value">@matej.doubrava</div>\
+        </div>\
+      </a>\
+    </div>\
+  </div>\
+</section>\
+\
+<footer>\
+  <div class="container footer">\
+    <div class="footer-logo">Mat\uc0\u283 j Doubrava</div>\
+    <div class="footer-copy">\'a9 2025 \'97 Stochov, CZ</div>\
+  </div>\
+</footer>\
+\
+</body>\
+</html>}
